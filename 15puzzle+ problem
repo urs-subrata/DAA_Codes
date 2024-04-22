@@ -1,0 +1,41 @@
+#include <stdio.h>
+int main()
+{
+    int i, r, n, j, count = 0, x;
+    int b[] = {0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0};
+    printf("Enter the total number of tiels:");
+    scanf("%d", &n);
+    int a[n];
+    printf("Enter the tiels into the array:");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    for (i = 0; i < n; i++)
+    {
+        for (j = i + 1; j <= n; j++)
+        {
+            if (a[j] < a[i])
+            {
+                count++;
+            }
+        }
+    }
+    for (i = 0; i < n; i++)
+    {
+        if (a[i] == n)
+        {
+            x = b[i];
+        }
+    }
+    r = count + x;
+    if (r % 2 == 0)
+    {
+        printf("solvable");
+    }
+    else
+    {
+        printf("not solvable");
+    }
+    return 0;
+}
