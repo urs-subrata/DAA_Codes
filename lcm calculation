@@ -1,0 +1,17 @@
+#include<stdio.h>
+int n,m,lcm,gcd;
+int main(){
+    printf("enter the first numebr:");
+    scanf("%d",&n);
+    printf("enetr the second number:");
+    scanf("%d",&m);
+    int i;
+    for(i=1;i<=n && i<=m;i++){
+        if(n%i==0 && m%i==0){
+            gcd=i;
+        }
+    }
+    lcm=(n*m)/gcd;
+    printf("lcm is %d",lcm);
+    return 0;
+}
