@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <limits.h>
+
+#define V 6 // Number of vertices
+
+void dijkstra(int graph[V][V], int src) {
+    int dist[V], min, u;
+    _Bool sptSet[V] = {0};
+
+    for (int i = 0; i < V; i++)
+        dist[i] = INT_MAX;
+    dist[src] = 0;
+
+    for (int count = 0; count < V - 1; count++) {
+        min = INT_MAX;
+        for (int v = 0; v < V; v++)
+            if (!sptSet[v] && dist[v] <= min)
+                min = dist[v], u = v;
+
+        sptSet[u] = 1;
+
+        for (int v = 0; v < V; v++)
+            if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX && dist[u] + graph[u][v] < dist[v])
+                dist[v] = dist[u] + graph[u][v];
+    }
+
+    printf("Vertex \t Distance from Source\n");
+    for (int i = 0; i < V; i++)
+        printf("%d \t %d\n", i, dist[i]);
+}
+
+int main() {
+    int graph[V][V], src;
+
+    printf("Enter the adjacency matrix for the graph (%d vertices):\n", V);
+    for (int i = 0; i < V; i++)
+        for (int j = 0; j < V; j++)
+            scanf("%d", &graph[i][j]);
+
+    printf("Enter the source vertex: ");
+    scanf("%d", &src);
+
+    dijkstra(graph, src);
+
+    return 0;
+}
