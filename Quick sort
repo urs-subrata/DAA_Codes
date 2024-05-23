@@ -50,8 +50,7 @@ void qs(int[],int,int);
         temp=a[lb];
         a[lb]=a[q];
         a[q]=temp;
-        return q;
-
     }
+    return q;
 
  }
