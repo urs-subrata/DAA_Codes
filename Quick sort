@@ -35,7 +35,7 @@ void qs(int[],int,int);
     p=lb+1;
     q=ub;
     while(q>=p){
-        while(q[a]>=a[lb]&&q>lb){
+        while(a[q]>=a[lb]&&q>lb){
             q--;
 
         }
